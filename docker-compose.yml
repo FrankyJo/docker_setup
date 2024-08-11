@@ -1,0 +1,19 @@
+version: "3.7"
+services: 
+  php:
+    image: php:8.2.1-fpm
+    volumes: 
+      - './dev:/var/www/html'
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes: 
+      - './dev:/var/www/html'
+      - './docker/nginx/conf.d:/etc/nginx/conf.d'
+
+  mysql:
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
