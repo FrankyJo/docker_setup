@@ -16,7 +16,8 @@ https://deliciousbrains.com/ssl-certificate-authority-for-local-https-developmen
 
 5. ./generate-nginx-config.sh subdomain.localdevdomain.com
 5. далі в терміналі  sudo nano /etc/hosts і там додаємо 127.0.0.1 subdomen.localdevdomain.com (або згідно того як ви назвали свій основний локальний домен)
-6. docker compose up -d
+6. docker compose build
+7. docker compose up -d
 
 Все, теперь ви можете працювати з ПХП
 
@@ -31,3 +32,8 @@ https://deliciousbrains.com/ssl-certificate-authority-for-local-https-developmen
 2. Далі sudo nano /etc/hosts і там додаємо 127.0.0.1 subdomen2.localdevdomain.com
 3. docker compose down
 4. docker compose up -d
+
+Для підключення дл бази данних:
+хост: mysql
+user: root
+pass: root

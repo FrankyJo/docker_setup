@@ -1,3 +1,8 @@
+FROM php:8.2.1-fpm
+
+# Устанавливаем необходимые расширения для MySQL
+RUN docker-php-ext-install pdo pdo_mysql mysqli
+
 # Используем базовый образ на основе Ubuntu
 FROM ubuntu:latest
 
@@ -16,3 +21,4 @@ WORKDIR /certs
 
 # Генерация сертификатов при запуске контейнера
 ENTRYPOINT ["mkcert"]
+

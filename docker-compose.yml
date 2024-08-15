@@ -2,6 +2,9 @@ version: "3.9"
 services: 
   php:
     image: php:8.2.1-fpm
+    build:
+      context: .
+      dockerfile: mysql.Dockerfile
     volumes: 
       - './dev:/var/www/html'
   nginx:
@@ -21,3 +24,7 @@ services:
     image: mysql:8
     environment:
       - MYSQL_ROOT_PASSWORD=root
+    volumes:
+    - './docker/volume/mysql:/var/lib/mysql'
+    ports:
+    - "3306:3306"

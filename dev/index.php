@@ -6,6 +6,6 @@
     <title>Document1</title>
 </head>
 <body>
-    
+    <?php php_info(); ?>
 </body>
 </html>
