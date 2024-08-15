@@ -1,17 +1,21 @@
-version: "3.7"
+version: "3.9"
 services: 
   php:
     image: php:8.2.1-fpm
     volumes: 
       - './dev:/var/www/html'
-
   nginx:
     image: nginx:latest
     ports:
       - "80:80"
-    volumes: 
+      - "443:443"
+    volumes:
       - './dev:/var/www/html'
       - './docker/nginx/conf.d:/etc/nginx/conf.d'
+      - './docker/nginx/ssl:/etc/nginx/ssl'
+      - './docker/nginx/snippets:/etc/nginx/snippets'
+    depends_on:
+      - php
 
   mysql:
     image: mysql:8
